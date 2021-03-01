@@ -13,6 +13,7 @@ export class PopupManager {
     }
 
     private popupNode: Node | null = null;
+    private blockInputNode: Node | null = null;
     private popups: Array<string>;
     private nodes: Map<string, Node>;
     private paths: Map<string, string>;
@@ -68,6 +69,8 @@ export class PopupManager {
         if (null == name && null == option.path) {
             throw new Error('name、prefab、path不同同时为空');
         }
+        // TODO 弹框过程中，背景不可以点击
+        // this.blockInputNode!.active = true;
         let priority = option.priority || 0;
         let node: Node | undefined;
         if (null != name) {
@@ -152,11 +155,10 @@ export class PopupManager {
             let name = this.popups[this.popups.length - 1];
             node = this.nodes.get(name) || null;
         }
-        console.log('node', node);
         if (null == node) {
+            // this.blockInputNode!.active = false;
             return;
         }
-        console.log(node.active);
         if (!node.active) {
             let ui = node.getComponent(PopupBase)!;
             ui._show();
@@ -165,13 +167,11 @@ export class PopupManager {
 
     hide(name: string) {
         let idx = this.popups.indexOf(name);
-        console.log(idx, this.popups, this.popups.length);
         let isLast = idx === this.popups.length - 1;
         if (idx >= 0) {
             this.popups.splice(idx, 1);
         }
         this._hideUI(name);
-        console.log(isLast);
         if (isLast) {
             this.showLast();
         }
@@ -186,6 +186,7 @@ export class PopupManager {
         for (let i = 0; i < this.popups.length; i++) {
             this._hideUI(this.popups[i]);
         }
+        // this.blockInputNode!.active = false;
     }
 
     private _hideUI(name: string) {
@@ -214,6 +215,7 @@ export class PopupManager {
         for (let name in this.nodes) {
             this.remove(name);
         }
+        // this.blockInputNode!.active = false;
     }
 
     getCurrentPopup() {
@@ -272,6 +274,14 @@ export class PopupManager {
         // console.log(uiTransform.width, uiTransform.height);
         this.popupNode.position = v3(size.width / 2, size.height / 2, 0);
         this.popupInit = true;
+
+        // TODO 实现弹框过程中，背景不可以点击
+        // this.blockInputNode = new Node('blockInputNode');
+        // this.blockInputNode.parent = this.popupNode;
+        // let blockInputTransform = this.blockInputNode.addComponent(UITransform);
+        // blockInputTransform.contentSize = size;
+        // blockInputTransform.priority = -1;
+        // this.blockInputNode!.active = false;
     }
 }
 
