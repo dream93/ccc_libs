@@ -2,19 +2,33 @@
 
 # c3d_libs
 
-    基于CocosCreator 3.0 的一套框架，目前实现了弹框管理
+    基于CocosCreator的一套框架
 
-# popup
+适配版本: 3.0(2.x版本可能简单修改后进行适配)
+    
+目前已实现:
 
-## API
+1. 弹框管理
+
+暂未实现:
+
+1. 弹框的资源销毁
+
+# API
+
+## 弹框管理
 
 ### 初始化
+
+在使用前，需要进行初始胡
 
 ```
 PopupManager.instance.init():void;
 ```
 
 ### 预加载
+
+对于动态加载的，可能直接使用会造成一定耗时，可以进行预加载
 
 ```
 PopupManager.instance.preLoad(option: { name?: string, prefab?: Prefab, url?: string }):void;
