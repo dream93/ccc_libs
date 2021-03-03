@@ -1,17 +1,17 @@
 
-import { _decorator, Component, Node, Label, Layers } from 'cc';
 import { EventManager } from '../../../libs/event/manager/EventManager';
 import { PopupBase } from '../../../libs/popup/base/PopupBase';
 import { ShowPopupEvent } from './TestScene';
-const { ccclass, property } = _decorator;
 
-@ccclass('TestPopup')
+const { ccclass, property } = cc._decorator;
+
+@ccclass
 export class TestPopup extends PopupBase {
 
     @property({
-        type: Label
+        type: cc.Label
     })
-    nameLabel: Label = null!;
+    nameLabel: cc.Label = null!;
 
     init() {
         this.nameLabel.string = this.popupName;

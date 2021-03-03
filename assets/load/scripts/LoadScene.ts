@@ -1,14 +1,14 @@
 
-import { _decorator, Component, Node, director } from 'cc';
 import { PopupManager } from '../../libs/popup/manager/PopupManager';
-const { ccclass, property } = _decorator;
 
-@ccclass('LoadScene')
-export class LoadScene extends Component {
+const { ccclass, property } = cc._decorator;
+
+@ccclass
+export class LoadScene extends cc.Component {
 
     start() {
         PopupManager.instance.init();
-        director.loadScene('PopupTest');
+        cc.director.loadScene('PopupTest');
     }
 }
 

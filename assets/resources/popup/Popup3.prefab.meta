@@ -1,13 +1,8 @@
 {
-  "ver": "1.1.27",
-  "importer": "prefab",
-  "imported": true,
-  "uuid": "ab007373-3943-493a-8cb8-494987f1dead",
-  "files": [
-    ".json"
-  ],
-  "subMetas": {},
-  "userData": {
-    "syncNodeName": "Popup3"
-  }
+  "ver": "1.2.9",
+  "uuid": "2616b426-bba1-4dd2-9fd6-91db2ed64e3a",
+  "optimizationPolicy": "AUTO",
+  "asyncLoadAssets": false,
+  "readonly": false,
+  "subMetas": {}
 }

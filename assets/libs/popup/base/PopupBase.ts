@@ -1,23 +1,23 @@
 
-import { _decorator, Component, CCBoolean, Enum, v3, tween, BlockInputEvents } from 'cc';
 import { PopupManager } from '../manager/PopupManager';
-const { ccclass, property } = _decorator;
 
 export enum AnimType {
     SCALE, FADE
 }
 
-@ccclass('PopupBase')
-export class PopupBase extends Component {
+const { ccclass, property } = cc._decorator;
 
-    @property(CCBoolean)
+@ccclass
+export class PopupBase extends cc.Component {
+
+    @property(cc.Boolean)
     blockInput: boolean = true;
 
-    @property(CCBoolean)
+    @property(cc.Boolean)
     anim: boolean = true;
 
     @property({
-        type: Enum(AnimType),
+        type: cc.Enum(AnimType),
         visible() {
             return (this as any).anim;
         }
@@ -31,7 +31,7 @@ export class PopupBase extends Component {
 
     onLoad() {
         if (this.blockInput) {
-            this.node.addComponent(BlockInputEvents);
+            this.node.addComponent(cc.BlockInputEvents);
         }
     }
 
@@ -49,8 +49,8 @@ export class PopupBase extends Component {
     _show() {
         this.node.active = true;
         if (this.anim) {
-            this.node.scale = v3(0, 0, 1);
-            tween(this.node).to(0.2, { scale: v3(1.1, 1.1, 1) }).to(0.05, { scale: v3(1, 1, 1) }).call(() => {
+            this.node.scale = 0;
+            cc.tween(this.node).to(0.2, { scale: 1.2 }).to(0.05, { scale: 1 }).call(() => {
                 this.onShow();
             }).start();
         } else {

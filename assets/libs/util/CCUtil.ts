@@ -1,13 +1,12 @@
-import { Asset, resources, __private } from "cc";
 
 export module CCUtil {
-    export function load<T extends Asset>(option: {
+    export function load(option: {
         paths: string,
-        type: __private.cocos_core_asset_manager_shared_AssetType<T> | null,
-        onProgress?: __private.cocos_core_asset_manager_shared_ProgressCallback | null,
-        onComplete?: __private.cocos_core_asset_manager_shared_CompleteCallbackWithData<T> | null
+        type: typeof cc.Asset | null,
+        onProgress?: any,
+        onComplete?: any
     }): void {
-        resources.load(option.paths, option.type, option.onProgress!, option.onComplete!);
+        cc.resources.load(option.paths, option.type, option.onProgress!, option.onComplete!);
     }
 
 }

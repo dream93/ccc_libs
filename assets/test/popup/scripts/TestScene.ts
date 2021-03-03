@@ -1,25 +1,25 @@
 
-import { _decorator, Component, Node, Prefab } from 'cc';
 import { EventManager } from '../../../libs/event/manager/EventManager';
 import { PopupManager } from '../../../libs/popup/manager/PopupManager';
-const { ccclass, property } = _decorator;
 
 export enum ShowPopupEvent {
     POPUP2 = 'SHOW_POPUP_POPUP2'
 }
 
-@ccclass('TestScene')
-export class TestScene extends Component {
+const { ccclass, property } = cc._decorator;
+
+@ccclass
+export class TestScene extends cc.Component {
 
     @property({
-        type: Prefab
+        type: cc.Prefab
     })
-    popup1: Prefab = null!;
+    popup1: cc.Prefab = null!;
 
     @property({
-        type: Prefab
+        type: cc.Prefab
     })
-    popup2: Prefab = null!;
+    popup2: cc.Prefab = null!;
 
     onLoad() {
         EventManager.instance.on(ShowPopupEvent.POPUP2, this.onShowPopup2, this);
