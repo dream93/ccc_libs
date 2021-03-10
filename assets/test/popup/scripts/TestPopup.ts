@@ -2,7 +2,7 @@
 import { _decorator, Component, Node, Label, Layers } from 'cc';
 import { EventManager } from '../../../libs/event/manager/EventManager';
 import { PopupBase } from '../../../libs/popup/base/PopupBase';
-import { ShowPopupEvent } from './TestScene';
+import { ShowPopupEvent } from './PopupScene';
 const { ccclass, property } = _decorator;
 
 @ccclass('TestPopup')

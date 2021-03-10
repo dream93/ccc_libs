@@ -8,8 +8,8 @@ export enum ShowPopupEvent {
     POPUP2 = 'SHOW_POPUP_POPUP2'
 }
 
-@ccclass('TestScene')
-export class TestScene extends Component {
+@ccclass('PopupScene')
+export class PopupScene extends Component {
 
     @property({
         type: Prefab

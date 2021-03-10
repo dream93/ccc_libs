@@ -8,7 +8,9 @@ export class LoadScene extends Component {
 
     start() {
         PopupManager.instance.init();
-        director.loadScene('PopupTest');
+        director.preloadScene('Test', () => {
+            director.loadScene('Test');
+        });
     }
 }
 
