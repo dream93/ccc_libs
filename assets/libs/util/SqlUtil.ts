@@ -39,7 +39,7 @@ export module SqlUtil {
         } else if (typeof value === 'number') {
             value = value + "";
         }
-        if (!CC_PREVIEW || null == _key || _iv == null) {
+        if (!CC_PREVIEW && null == _key && null == _iv) {
             try {
                 value = EncryptUtil.aesEncrypt(value, _key, _iv);
             } catch (e) {
