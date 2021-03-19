@@ -8,5 +8,4 @@ export module CCUtil {
     }): void {
         cc.resources.load(option.paths, option.type, option.onProgress!, option.onComplete!);
     }
-
 }

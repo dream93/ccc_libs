@@ -6,9 +6,12 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export class LoadScene extends cc.Component {
 
-    start() {
+    onLoad() {
         PopupManager.instance.init();
-        cc.director.loadScene('PopupTest');
+    }
+
+    start() {
+        cc.director.loadScene('Test');
     }
 }
 

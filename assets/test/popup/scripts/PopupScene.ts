@@ -9,7 +9,7 @@ export enum ShowPopupEvent {
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export class TestScene extends cc.Component {
+export class PopupScene extends cc.Component {
 
     @property({
         type: cc.Prefab

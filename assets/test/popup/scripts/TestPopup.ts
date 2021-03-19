@@ -1,7 +1,7 @@
 
 import { EventManager } from '../../../libs/event/manager/EventManager';
 import { PopupBase } from '../../../libs/popup/base/PopupBase';
-import { ShowPopupEvent } from './TestScene';
+import { ShowPopupEvent } from './PopupScene';
 
 const { ccclass, property } = cc._decorator;
 
