@@ -16,6 +16,9 @@ export enum ResolutionType {
 @ccclass('CanvasAdapter')
 export class CanvasAdapter extends Component {
 
+    @property({
+        type: Enum(ResolutionType)
+    })
     private _resolutionType: ResolutionType = ResolutionType.CUSTOM;
 
     @property({
